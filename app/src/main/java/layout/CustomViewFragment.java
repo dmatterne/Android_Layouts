@@ -1,6 +1,7 @@
 package layout;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import be.david.layouts.R;
+import be.david.layouts.RealDolmenView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,7 +67,25 @@ public class CustomViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_custom_view, container, false);
+        View view =  inflater.inflate(R.layout.fragment_custom_view, container, false);
+
+
+        final RealDolmenView realDolmenView = (RealDolmenView) view.findViewById(R.id.realdolmenView);
+
+        realDolmenView.setSquareColor(Color.BLUE);
+        realDolmenView.setLabelColor(Color.YELLOW);
+        realDolmenView.setSquareText("Click Me");
+
+        realDolmenView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                realDolmenView.setSquareColor(Color.GREEN);
+                realDolmenView.setLabelColor(Color.MAGENTA);
+                realDolmenView.setSquareText("YOU DARED TO CLICK ME");
+            }
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

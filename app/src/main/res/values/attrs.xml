@@ -7,6 +7,6 @@
         <attr name = "LabelColor" format="color"></attr>
 
 
-    </declare>
+    </declare-styleable>
 
 </resources>
